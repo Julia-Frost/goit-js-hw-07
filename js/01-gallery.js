@@ -39,11 +39,17 @@ function onImgClick(event) {
     return;
   }
   // Підключення Лайтбокс
-  basicLightbox
-    .create(
-      `
+  const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" width="800" height="600">
-`
-    )
-    .show();
+`);
+
+  instance.show();
+
+  window.addEventListener("keydown", onEscapeDown);
+  function onEscapeDown(event) {
+    if (event.code !== "Escape") {
+      return;
+    }
+    instance.close();
+  }
 }
