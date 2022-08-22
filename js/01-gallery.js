@@ -3,8 +3,6 @@ import { galleryItems } from "./gallery-items.js";
 
 // Створення розмітки
 
-console.log(galleryItems);
-
 const galleryEl = document.querySelector(".gallery");
 const list = createImgList(galleryItems);
 
@@ -44,6 +42,8 @@ function onImgClick(event) {
 `);
 
   instance.show();
+
+  // Закриття по кліку на Escape
 
   window.addEventListener("keydown", onEscapeDown);
   function onEscapeDown(event) {
